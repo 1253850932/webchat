@@ -5,12 +5,14 @@
     <div class="layout-left">
       <div class="top">
         <img src="../assets/logo.jpg" alt="" />
-        <el-icon size="30" color="#acacac" style="margin-bottom: 30px"><ChatDotSquare /></el-icon>
-        <el-icon size="30" color="#acacac"><User /></el-icon>
+        <el-icon size="30" style="margin-bottom: 30px; cursor: pointer" :color="$router.currentRoute.value.name === 'userList' ? 'red' : '#acacac'" @click="$router.push('userList')"
+          ><ChatDotSquare
+        /></el-icon>
+        <el-icon size="30" style="cursor: pointer" :color="$router.currentRoute.value.name === 'userAdd' ? 'red' : '#acacac'" @click="$router.push('userAdd')"><User /></el-icon>
       </div>
       <el-icon size="30" color="#acacac" class="quit"><SwitchButton /></el-icon>
     </div>
-    <div class="layout-right"></div>
+    <div class="layout-right"><router-view></router-view></div>
   </div>
 </template>
 <style lang="scss">
